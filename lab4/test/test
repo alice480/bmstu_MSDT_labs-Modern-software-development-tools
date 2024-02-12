@@ -1,0 +1,99 @@
+#!/bin/bash
+
+if [ -f lab.data ]
+then
+  rm lab.data
+  echo "Файл lab.data удалён"
+fi
+
+test/make-result-lab-default-threads
+
+if [ -f lab.data ]
+then
+  rm lab.data
+  echo "Файл lab.data удалён"
+fi
+
+test/make-result-lab-two-threads
+
+# тест на неверное количество аргументов addImage
+grep "Некорректное количество аргументов команды addImage" test/lab.out > /dev/null
+if [ $? -ne 0 ]
+then
+  echo -e "\033[1mОшибка при выполнении теста addImage-wrong-arg-count\033[0m"
+  exit 1
+fi
+
+# тест на неверное количество аргументов addMuseum
+grep "Некорректное количество аргументов команды addMuseum" test/lab.out > /dev/null
+if [ $? -ne 0 ]
+then
+  echo -e "\033[1mОшибка при выполнении теста addMuseum-wrong-arg-count\033[0m"
+  exit 1
+fi
+
+# тест на неверное количество аргументов count
+grep "Некорректное количество аргументов команды count" test/lab.out > /dev/null
+if [ $? -ne 0 ]
+then
+  echo -e "\033[1mОшибка при выполнении теста count-wrong-arg-count\033[0m"
+  exit 1
+fi
+
+# тест на неверное количество аргументов remove
+grep "Некорректное количество аргументов команды remove" test/lab.out > /dev/null
+if [ $? -ne 0 ]
+then
+  echo -e "\033[1mОшибка при выполнении теста remove-wrong-arg-count\033[0m"
+  exit 1
+fi
+
+# тест на неверное количество аргументов update
+grep "Некорректное количество аргументов команды update" test/lab.out > /dev/null
+if [ $? -ne 0 ]
+then
+  echo -e "\033[1mОшибка при выполнении теста update-wrong-arg-count\033[0m"
+  exit 1
+fi
+
+# тест на неверное количество аргументов view
+grep "Некорректное количество аргументов команды view" test/lab.out > /dev/null
+if [ $? -ne 0 ]
+then
+  echo -e "\033[1mОшибка при выполнении теста view-wrong-arg-count\033[0m"
+  exit 1
+fi
+
+# тест на запрет использования несуществующей команды
+grep "Недопустимая команда 'non-existent'" test/lab.out > /dev/null
+if [ $? -ne 0 ]
+then
+  echo -e "\033[1mОшибка при выполнении теста non-existent-command\033[0m"
+  exit 1
+fi
+
+# тестирование команды report
+grep "aI 5 ВаснецовВМ Снегурочка 1899 1
+aI 5 ВаснецовВМ Богатыри 1898 1" test/lab.out > /dev/null
+if [ $? -ne 0 ]
+then
+  echo -e "\033[1mОшибка при выполнении теста test/make-result-lab-report\033[0m"
+  exit 1
+fi
+
+# тестирование команды view
+grep "Количество музеев в коллекции: 7" test/lab.out > /dev/null
+if [ $? -ne 0 ]
+then
+  echo -e "\033[1mОшибка при выполнении теста test/make-result-lab-view\033[0m"
+  exit 1
+fi
+
+test/make-result-stressgen
+diff test/samples/stressgen.sample test/stressgen.out
+
+if [ $? -ne 0 ]
+then
+  echo -e "\033[1mОшибка при выполнении теста test/make-result-stressgen\033[0m"
+  exit 1
+fi

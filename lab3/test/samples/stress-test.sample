@@ -1,0 +1,52 @@
+Start
+=== test/source/stress-test-templates/01.test ===
+#100000
+aM #W
+#
+s
+--- Test --->
+Инструкция
+l/load filename
+s/save filename
+c/clean
+aM/addMuseum museum_name
+aI/addImage museum_number author_name image_name year_of_creation exhibited
+r/remove index
+u/update museum_number museum_name
+v/view
+
+Выполнение завершено успешно
+=== test/source/stress-test-templates/02.test ===
+l
+#100000
+aI #N БрюлловКП #W 1800 1
+#
+s
+--- Test --->
+Инструкция
+l/load filename
+s/save filename
+c/clean
+aM/addMuseum museum_name
+aI/addImage museum_number author_name image_name year_of_creation exhibited
+r/remove index
+u/update museum_number museum_name
+v/view
+
+Выполнение завершено успешно
+=== test/source/stress-test-templates/03.test ===
+l
+rp 0 БрюлловКП
+
+--- Test --->
+Инструкция
+l/load filename
+s/save filename
+c/clean
+aM/addMuseum museum_name
+aI/addImage museum_number author_name image_name year_of_creation exhibited
+r/remove index
+u/update museum_number museum_name
+v/view
+
+Выполнение завершено успешно

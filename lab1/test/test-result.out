@@ -1,0 +1,188 @@
+Start
+=== test/00_add.test ===
+
+add wrong number of argument
+--- Test --->
+Инструкция
+l/load filename
+s/save filename
+c/clean
+a/add author_name image_name year_of_creation
+r/remove index
+u/update index author_name image_name year_of_creation
+v/view
+
+Некорректное количество аргументов команды add
+=== test/00_empty.test ===
+--- Test --->
+=== test/00_load.test ===
+
+l wrong number of argument
+--- Test --->
+Инструкция
+l/load filename
+s/save filename
+c/clean
+a/add author_name image_name year_of_creation
+r/remove index
+u/update index author_name image_name year_of_creation
+v/view
+
+Ошибка при загрузке файла 'wrong'
+=== test/00_remove.test ===
+
+r wrong number of argument
+--- Test --->
+Инструкция
+l/load filename
+s/save filename
+c/clean
+a/add author_name image_name year_of_creation
+r/remove index
+u/update index author_name image_name year_of_creation
+v/view
+
+Некорректное количество аргументов команды remove
+=== test/00_uncorrect.test ===
+
+non-existent command--- Test --->
+Инструкция
+l/load filename
+s/save filename
+c/clean
+a/add author_name image_name year_of_creation
+r/remove index
+u/update index author_name image_name year_of_creation
+v/view
+
+Недопустимая команда 'non-existent'
+=== test/00_update.test ===
+
+update wrong_number_of_argument--- Test --->
+Инструкция
+l/load filename
+s/save filename
+c/clean
+a/add author_name image_name year_of_creation
+r/remove index
+u/update index author_name image_name year_of_creation
+v/view
+
+Некорректное количество аргументов команды update
+=== test/00_view.test ===
+
+view wrong number of argument--- Test --->
+Инструкция
+l/load filename
+s/save filename
+c/clean
+a/add author_name image_name year_of_creation
+r/remove index
+u/update index author_name image_name year_of_creation
+v/view
+
+Некорректное количество аргументов команды view
+=== test/01.test ===
+
+a Репин Запорожцы 1891
+a Серов ПохищениеЕвропы 1910
+a Брюллов Всадница 1832
+a Суриков БоярыняМорозова 1887
+a Крамской Русалки 1871
+s
+v
+--- Test --->
+Инструкция
+l/load filename
+s/save filename
+c/clean
+a/add author_name image_name year_of_creation
+r/remove index
+u/update index author_name image_name year_of_creation
+v/view
+
+[0] Репин Запорожцы 1891
+[1] Серов ПохищениеЕвропы 1910
+[2] Брюллов Всадница 1832
+[3] Суриков БоярыняМорозова 1887
+[4] Крамской Русалки 1871
+Количество элементов в коллекции: 5
+Выполнение завершено успешно
+=== test/02.test ===
+
+a Айвазовский ДевятыйВал 1850
+a Малевич ЧерныйКвадрат 1915
+a Боголюбов Кораблекрушение 1850
+a Куинджи Ночное 1908
+s lab2.data
+v
+--- Test --->
+Инструкция
+l/load filename
+s/save filename
+c/clean
+a/add author_name image_name year_of_creation
+r/remove index
+u/update index author_name image_name year_of_creation
+v/view
+
+[0] Айвазовский ДевятыйВал 1850
+[1] Малевич ЧерныйКвадрат 1915
+[2] Боголюбов Кораблекрушение 1850
+[3] Куинджи Ночное 1908
+Количество элементов в коллекции: 4
+Выполнение завершено успешно
+=== test/03.test ===
+
+l lab2.data
+r 2
+s
+u 1 Иванов ЯвлениеХристаНароду 1857
+v
+--- Test --->
+Инструкция
+l/load filename
+s/save filename
+c/clean
+a/add author_name image_name year_of_creation
+r/remove index
+u/update index author_name image_name year_of_creation
+v/view
+
+[0] Айвазовский ДевятыйВал 1850
+[1] Иванов ЯвлениеХристаНароду 1857
+[3] Куинджи Ночное 1908
+Количество элементов в коллекции: 3
+Выполнение завершено успешно
+=== test/05.test ===
+
+a Левитан ЗолотаяОсень 1895
+save
+clean
+view
+--- Test --->
+Инструкция
+l/load filename
+s/save filename
+c/clean
+a/add author_name image_name year_of_creation
+r/remove index
+u/update index author_name image_name year_of_creation
+v/view
+
+Количество элементов в коллекции: 0
+Выполнение завершено успешно
+=== test/06.test ===
+
+c wrong_number_of_argument
+--- Test --->
+Инструкция
+l/load filename
+s/save filename
+c/clean
+a/add author_name image_name year_of_creation
+r/remove index
+u/update index author_name image_name year_of_creation
+v/view
+
+Некорректное количество аргументов команды clean

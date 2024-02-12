@@ -1,0 +1,326 @@
+Start
+=== test/00_addImage.test ===
+
+addImage wrong number of argument
+--- Test --->
+Инструкция
+l/load filename
+s/save filename
+c/clean
+aM/addMuseum museum_name
+aI/addImage museum_number author_name image_name year_of_creation exhibited
+r/remove index
+u/update museum_number museum_name
+v/view
+
+Некорректное количество аргументов команды addImage
+-----------------
+=== test/00_addMuseum.test ===
+
+addMuseum wrong number of argument
+--- Test --->
+Инструкция
+l/load filename
+s/save filename
+c/clean
+aM/addMuseum museum_name
+aI/addImage museum_number author_name image_name year_of_creation exhibited
+r/remove index
+u/update museum_number museum_name
+v/view
+
+Некорректное количество аргументов команды addMuseum
+-----------------
+=== test/00_clean.test ===
+
+c wrong_number_of_argument
+--- Test --->
+Инструкция
+l/load filename
+s/save filename
+c/clean
+aM/addMuseum museum_name
+aI/addImage museum_number author_name image_name year_of_creation exhibited
+r/remove index
+u/update museum_number museum_name
+v/view
+
+Некорректное количество аргументов команды clean
+-----------------
+=== test/00_empty.test ===
+--- Test --->
+-----------------
+=== test/00_load.test ===
+
+l wrong number of argument
+--- Test --->
+Инструкция
+l/load filename
+s/save filename
+c/clean
+aM/addMuseum museum_name
+aI/addImage museum_number author_name image_name year_of_creation exhibited
+r/remove index
+u/update museum_number museum_name
+v/view
+
+Ошибка при загрузке файла 'wrong'
+-----------------
+=== test/00_remove.test ===
+
+r wrong number of argument
+--- Test --->
+Инструкция
+l/load filename
+s/save filename
+c/clean
+aM/addMuseum museum_name
+aI/addImage museum_number author_name image_name year_of_creation exhibited
+r/remove index
+u/update museum_number museum_name
+v/view
+
+Некорректное количество аргументов команды remove
+-----------------
+=== test/00_uncorrect.test ===
+
+non-existent command--- Test --->
+Инструкция
+l/load filename
+s/save filename
+c/clean
+aM/addMuseum museum_name
+aI/addImage museum_number author_name image_name year_of_creation exhibited
+r/remove index
+u/update museum_number museum_name
+v/view
+
+Недопустимая команда 'non-existent'
+-----------------
+=== test/00_update.test ===
+
+update wrong_number_of_argument
+--- Test --->
+Инструкция
+l/load filename
+s/save filename
+c/clean
+aM/addMuseum museum_name
+aI/addImage museum_number author_name image_name year_of_creation exhibited
+r/remove index
+u/update museum_number museum_name
+v/view
+
+Некорректное количество аргументов команды update
+-----------------
+=== test/00_view.test ===
+
+view wrong number of argument
+--- Test --->
+Инструкция
+l/load filename
+s/save filename
+c/clean
+aM/addMuseum museum_name
+aI/addImage museum_number author_name image_name year_of_creation exhibited
+r/remove index
+u/update museum_number museum_name
+v/view
+
+Некорректное количество аргументов команды view
+-----------------
+=== test/01_Museums.test ===
+
+aM Третьяковская_Галерея
+aM Центр_Искусств
+aM Галерея_на_Каширке
+aM Атриум
+aM Музей_современного_искусства
+aM Галерея_на_Шаболовке
+v
+s
+--- Test --->
+Инструкция
+l/load filename
+s/save filename
+c/clean
+aM/addMuseum museum_name
+aI/addImage museum_number author_name image_name year_of_creation exhibited
+r/remove index
+u/update museum_number museum_name
+v/view
+
+[0] Третьяковская_Галерея 
+[1] Центр_Искусств 
+[2] Галерея_на_Каширке 
+[3] Атриум 
+[4] Музей_современного_искусства 
+[5] Галерея_на_Шаболовке 
+Количество элементов в коллекции: 6
+Выполнение завершено успешно
+-----------------
+=== test/02_Images_Repin.test ===
+
+l
+aI 0 РепинИЕ Запорожцы 1891 1
+aI 0 РепинИЕ Садко 1876 1
+aI 0 РепинИЕ БурлакиНаВолге 1873 0
+aI 0 РепинИЕ НеЖдали 1888 0
+aI 0 РепинИЕ Стрекоза 1884 1
+aI 0 РепинИЕ ЛетнийПейзаж 1879 0
+aI 0 РепинИЕ Нищая 1874 0
+v
+s lab2.data
+--- Test --->
+Инструкция
+l/load filename
+s/save filename
+c/clean
+aM/addMuseum museum_name
+aI/addImage museum_number author_name image_name year_of_creation exhibited
+r/remove index
+u/update museum_number museum_name
+v/view
+
+[0] Третьяковская_Галерея 
+	РепинИЕ: Запорожцы, 1891
+	РепинИЕ: Садко, 1876
+	РепинИЕ: БурлакиНаВолге, 1873
+	РепинИЕ: НеЖдали, 1888
+	РепинИЕ: Стрекоза, 1884
+	РепинИЕ: ЛетнийПейзаж, 1879
+	РепинИЕ: Нищая, 1874
+[1] Центр_Искусств 
+[2] Галерея_на_Каширке 
+[3] Атриум 
+[4] Музей_современного_искусства 
+[5] Галерея_на_Шаболовке 
+Количество элементов в коллекции: 6
+Выполнение завершено успешно
+-----------------
+=== test/03_report.test ===
+
+l lab2.data
+rp 0 РепинИЕ--- Test --->
+Инструкция
+l/load filename
+s/save filename
+c/clean
+aM/addMuseum museum_name
+aI/addImage museum_number author_name image_name year_of_creation exhibited
+r/remove index
+u/update museum_number museum_name
+v/view
+
+РепинИЕ БурлакиНаВолге 1873
+РепинИЕ НеЖдали 1888
+РепинИЕ ЛетнийПейзаж 1879
+РепинИЕ Нищая 1874
+Выполнение завершено успешно
+-----------------
+=== test/04.test ===
+
+l lab2.data
+v
+r 2
+u 3 РусскийМузей
+v
+s lab2.data--- Test --->
+Инструкция
+l/load filename
+s/save filename
+c/clean
+aM/addMuseum museum_name
+aI/addImage museum_number author_name image_name year_of_creation exhibited
+r/remove index
+u/update museum_number museum_name
+v/view
+
+[0] Третьяковская_Галерея 
+	РепинИЕ: Запорожцы, 1891
+	РепинИЕ: Садко, 1876
+	РепинИЕ: БурлакиНаВолге, 1873
+	РепинИЕ: НеЖдали, 1888
+	РепинИЕ: Стрекоза, 1884
+	РепинИЕ: ЛетнийПейзаж, 1879
+	РепинИЕ: Нищая, 1874
+[1] Центр_Искусств 
+[2] Галерея_на_Каширке 
+[3] Атриум 
+[4] Музей_современного_искусства 
+[5] Галерея_на_Шаболовке 
+Количество элементов в коллекции: 6
+[0] Третьяковская_Галерея 
+	РепинИЕ: Запорожцы, 1891
+	РепинИЕ: Садко, 1876
+	РепинИЕ: БурлакиНаВолге, 1873
+	РепинИЕ: НеЖдали, 1888
+	РепинИЕ: Стрекоза, 1884
+	РепинИЕ: ЛетнийПейзаж, 1879
+	РепинИЕ: Нищая, 1874
+[1] Центр_Искусств 
+[3] РусскийМузей 
+[4] Музей_современного_искусства 
+[5] Галерея_на_Шаболовке 
+Количество элементов в коллекции: 5
+Выполнение завершено успешно
+-----------------
+=== test/05.test ===
+
+l lab2.data
+aI 1 СеровВА ПохищениеЕвропы 1910 0
+aI 2 БрюлловКП Всадница 1832 1
+aI 3 СуриковВИ БоярыняМорозова 1887 1
+aI 4 КрамскойНИ Русалки 1871 0
+s
+v
+--- Test --->
+Инструкция
+l/load filename
+s/save filename
+c/clean
+aM/addMuseum museum_name
+aI/addImage museum_number author_name image_name year_of_creation exhibited
+r/remove index
+u/update museum_number museum_name
+v/view
+
+[0] Третьяковская_Галерея 
+	РепинИЕ: Запорожцы, 1891
+	РепинИЕ: Садко, 1876
+	РепинИЕ: БурлакиНаВолге, 1873
+	РепинИЕ: НеЖдали, 1888
+	РепинИЕ: Стрекоза, 1884
+	РепинИЕ: ЛетнийПейзаж, 1879
+	РепинИЕ: Нищая, 1874
+[1] Центр_Искусств 
+	СеровВА: ПохищениеЕвропы, 1910
+[2] РусскийМузей 
+	БрюлловКП: Всадница, 1832
+[3] Музей_современного_искусства 
+	СуриковВИ: БоярыняМорозова, 1887
+[4] Галерея_на_Шаболовке 
+	КрамскойНИ: Русалки, 1871
+Количество элементов в коллекции: 5
+Выполнение завершено успешно
+-----------------
+=== test/06.test ===
+
+l lab2.data
+aI 2 Левитан ЗолотаяОсень 1895 1
+clean
+view
+--- Test --->
+Инструкция
+l/load filename
+s/save filename
+c/clean
+aM/addMuseum museum_name
+aI/addImage museum_number author_name image_name year_of_creation exhibited
+r/remove index
+u/update museum_number museum_name
+v/view
+
+Количество элементов в коллекции: 0
+Выполнение завершено успешно
+-----------------
